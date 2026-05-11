@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+header {
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+nav a {
+    color: #e3f2fd;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+
+.active {
+    background: rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#skills {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#skills th,
+#skills td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#skills th {
+    background: #1976d2;
+    color: white;
+}
+
+#skills tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+#skills tbody tr:hover {
+    background: #fff9c4;
+}
+
+footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}

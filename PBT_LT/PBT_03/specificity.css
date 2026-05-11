@@ -1,0 +1,16 @@
+p { color: black; }
+.text { color: blue; }
+.highlight { color: green; }
+p.text { color: orange; }
+p.highlight { color: purple; }
+.text.highlight { color: brown; }
+p.text.highlight { color: pink; }
+#demo { color: red; }
+p#demo { color: teal; }
+p#demo.text.highlight { color: darkmagenta; }
+
+body {
+    font-family: Arial;
+    padding: 40px;
+    font-size: 40px;
+}
