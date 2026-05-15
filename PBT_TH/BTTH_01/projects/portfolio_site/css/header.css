@@ -1,0 +1,145 @@
+/* ==================== HEADER STYLING ==================== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--color-light);
+    box-shadow: var(--shadow-md);
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    white-space: nowrap;
+}
+
+/* ==================== NAVIGATION ==================== */
+.nav {
+    display: flex;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+    transition: var(--transition);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ==================== MOBILE MENU ==================== */
+.menu-toggle {
+    display: none;
+}
+
+.menu-label {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.menu-label span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-dark);
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+/* Hamburger menu animation */
+.menu-toggle:checked ~ .menu-label span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.menu-toggle:checked ~ .menu-label span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle:checked ~ .menu-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.menu-toggle:checked ~ .nav {
+    display: flex;
+}
+
+/* ==================== TABLET/MOBILE RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .header {
+        height: 70px;
+    }
+
+    .menu-label {
+        display: flex;
+    }
+
+    .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--color-light);
+        padding: var(--spacing-lg);
+        gap: var(--spacing-lg);
+        box-shadow: var(--shadow-lg);
+        display: none;
+    }
+
+    .menu-toggle:checked ~ .nav {
+        display: flex;
+    }
+
+    .nav-link {
+        font-size: 1.125rem;
+        padding: var(--spacing-sm);
+    }
+
+    .container-header {
+        padding: 0 var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .nav {
+        top: 60px;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+}

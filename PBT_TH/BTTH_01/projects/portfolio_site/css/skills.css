@@ -1,0 +1,87 @@
+/* ==================== SKILLS SECTION ==================== */
+.skills-section {
+    padding: var(--spacing-3xl) var(--spacing-xl);
+    background: white;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    background: #fafbfc;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+}
+
+.skill-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: 1rem;
+}
+
+.skill-percentage {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+}
+
+.skill-bar {
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    height: 12px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 1s ease-out;
+    animation: fillBar 1s ease-out forwards;
+}
+
+@keyframes fillBar {
+    from {
+        width: 0 !important;
+    }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .skills-section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-section {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .skill-item {
+        padding: var(--spacing-md);
+    }
+}
