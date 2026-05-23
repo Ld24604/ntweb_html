@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sinh viên</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Hệ thống Quản lý Sinh viên</h1>
+        </header>
+
+        <!-- Notification Area -->
+        <div id="notification" class="notification"></div>
+
+        <!-- Add Student Button -->
+        <div class="action-bar">
+            <button id="btnAddStudent" class="btn btn-primary">+ Thêm Sinh viên</button>
+        </div>
+
+        <!-- Statistics Area -->
+        <div class="statistics">
+            <div class="stat-item">
+                <span class="stat-label">Tổng số sinh viên:</span>
+                <span id="totalStudents" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Điểm trung bình lớp:</span>
+                <span id="averageScore" class="stat-value">0.00</span>
+            </div>
+        </div>
+
+        <!-- Students Table -->
+        <div class="table-container">
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th>Mã sinh viên</th>
+                        <th>Họ và tên</th>
+                        <th>Ngày sinh</th>
+                        <th>Lớp học</th>
+                        <th>Điểm trung bình</th>
+                        <th>Email</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                    <tr class="empty-row">
+                        <td colspan="7">Chưa có dữ liệu sinh viên</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add/Edit Student Modal -->
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Thêm sinh viên mới</h2>
+                <button id="btnCloseModal" class="close-btn">&times;</button>
+            </div>
+
+            <form id="studentForm" class="student-form">
+                <div class="form-group">
+                    <label for="studentId">Mã sinh viên *</label>
+                    <input type="text" id="studentId" required disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentName">Họ và tên *</label>
+                    <input type="text" id="studentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentDOB">Ngày sinh *</label>
+                    <input type="date" id="studentDOB" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentClass">Lớp học *</label>
+                    <input type="text" id="studentClass" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentScore">Điểm trung bình *</label>
+                    <input type="number" id="studentScore" min="0" max="10" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Email *</label>
+                    <input type="email" id="studentEmail" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="btnSubmit" class="btn btn-primary">Lưu</button>
+                    <button type="button" id="btnCancel" class="btn btn-secondary">Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content modal-confirm">
+            <div class="modal-header">
+                <h2>Xác nhận xóa</h2>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Bạn chắc chắn muốn xóa sinh viên này?</p>
+            </div>
+            <div class="form-actions">
+                <button id="btnConfirmDelete" class="btn btn-danger">Xóa</button>
+                <button id="btnCancelDelete" class="btn btn-secondary">Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

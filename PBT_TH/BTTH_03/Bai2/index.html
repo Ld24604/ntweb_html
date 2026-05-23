@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý công việc cá nhân</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📝 Quản lý Công việc Cá nhân</h1>
+            <p class="subtitle">Quản lý hiệu quả danh sách công việc hàng ngày</p>
+        </header>
+
+        <!-- Notification Area -->
+        <div id="notification" class="notification"></div>
+
+        <!-- Add Task Button -->
+        <div class="action-bar">
+            <button id="btnAddTask" class="btn btn-primary">+ Thêm Công việc</button>
+        </div>
+
+        <!-- Statistics Area -->
+        <div class="statistics">
+            <div class="stat-item">
+                <span class="stat-label">Tổng công việc:</span>
+                <span id="totalTasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Đã hoàn thành:</span>
+                <span id="completedTasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Chưa hoàn thành:</span>
+                <span id="incompleteTasks" class="stat-value">0</span>
+            </div>
+        </div>
+
+        <!-- Tasks List -->
+        <div class="tasks-container">
+            <div id="tasksListContainer" class="tasks-list">
+                <div class="empty-state">
+                    <p>📭 Không có công việc nào</p>
+                    <p class="empty-hint">Bấm nút "Thêm Công việc" để bắt đầu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Thêm công việc mới</h2>
+                <button id="btnCloseModal" class="close-btn">&times;</button>
+            </div>
+
+            <form id="taskForm" class="task-form">
+                <div class="form-group">
+                    <label for="taskTitle">Tiêu đề công việc *</label>
+                    <input type="text" id="taskTitle" placeholder="Nhập tiêu đề công việc" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Mô tả ngắn</label>
+                    <textarea id="taskDescription" placeholder="Nhập mô tả chi tiết công việc" rows="4"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskDueDate">Hạn hoàn thành *</label>
+                        <input type="date" id="taskDueDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taskPriority">Mức ưu tiên *</label>
+                        <select id="taskPriority" required>
+                            <option value="">-- Chọn mức ưu tiên --</option>
+                            <option value="low">🟢 Thấp</option>
+                            <option value="medium">🟡 Trung bình</option>
+                            <option value="high">🔴 Cao</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="btnSubmit" class="btn btn-primary">Thêm</button>
+                    <button type="button" id="btnCancel" class="btn btn-secondary">Hủy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content modal-confirm">
+            <div class="modal-header">
+                <h2>Xác nhận xóa</h2>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Bạn chắc chắn muốn xóa công việc này?</p>
+            </div>
+            <div class="form-actions">
+                <button id="btnConfirmDelete" class="btn btn-danger">Xóa</button>
+                <button id="btnCancelDelete" class="btn btn-secondary">Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
