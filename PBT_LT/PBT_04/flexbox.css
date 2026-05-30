@@ -1,0 +1,113 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f8fafc;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 40px;
+
+background:#1e293b;
+
+}
+
+.logo{
+color:white;
+font-size:24px;
+font-weight:bold;
+}
+
+.menu{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.menu a:hover{
+color:#60a5fa;
+text-decoration:underline;
+}
+
+.auth{
+display:flex;
+gap:10px;
+}
+
+.auth button{
+padding:10px 15px;
+cursor:pointer;
+}
+
+.products{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+
+padding:30px;
+
+}
+
+.card{
+flex:0 0 calc(25% - 20px);
+
+display:flex;
+flex-direction:column;
+
+background:white;
+
+border-radius:10px;
+
+overflow:hidden;
+
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+
+transition:0.3s;
+
+}
+
+.card:hover{
+transform:translateY(-5px);
+
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+
+}
+
+.card img{
+width:100%;
+}
+
+.card h3,
+.card p{
+padding:10px;
+}
+
+.buy-btn{
+margin-top:auto;
+
+margin:10px;
+
+padding:10px;
+
+border:none;
+
+background:#2563eb;
+color:white;
+
+cursor:pointer;
+
+}
