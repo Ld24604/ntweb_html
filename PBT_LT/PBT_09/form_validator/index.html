@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="form-shell">
+        <section class="card">
+            <h1>Register Account</h1>
+            <form id="signup-form" novalidate>
+                <div class="field-group">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your full name" autocomplete="name" />
+                    <p class="feedback" id="name-feedback"></p>
+                </div>
+                <div class="field-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+                    <p class="feedback" id="email-feedback"></p>
+                </div>
+                <div class="field-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" placeholder="Minimum 8 characters" autocomplete="new-password" />
+                    <div class="strength-row">
+                        <div class="strength-bar" id="strength-bar"></div>
+                    </div>
+                    <p class="feedback" id="password-feedback"></p>
+                </div>
+                <div class="field-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input id="confirm-password" name="confirm-password" type="password" placeholder="Repeat password" autocomplete="new-password" />
+                    <p class="feedback" id="confirm-feedback"></p>
+                </div>
+                <div class="field-group">
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" placeholder="0901-234-567" autocomplete="tel" maxlength="13" />
+                    <p class="feedback" id="phone-feedback"></p>
+                </div>
+                <button id="submit-btn" type="submit" disabled>Create account</button>
+            </form>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="success-modal" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+            <h2 id="modal-title">Registration successful!</h2>
+            <p id="modal-message"></p>
+            <button id="modal-close" type="button">Close</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
