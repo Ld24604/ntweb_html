@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+header{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+}
+
+nav{
+    display:none;
+}
+
+.hamburger{
+    font-size:24px;
+}
+
+.sidebar,
+.ads{
+    display:none;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* TABLET */
+
+@media(min-width:768px){
+
+    body{
+        font-size:18px;
+    }
+
+    .sidebar{
+        display:block;
+        background:#eee;
+        padding:20px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .layout{
+        display:grid;
+    }
+}
+
+/* DESKTOP */
+
+@media(min-width:1024px){
+
+    nav{
+        display:flex;
+        gap:20px;
+    }
+
+    nav a{
+        color:white;
+        text-decoration:none;
+    }
+
+    .hamburger{
+        display:none;
+    }
+
+    .ads{
+        display:block;
+        background:#eee;
+        padding:20px;
+    }
+
+    .layout{
+        display:grid;
+        grid-template-columns:200px 1fr 200px;
+        gap:20px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    body{
+        font-size:20px;
+    }
+}
