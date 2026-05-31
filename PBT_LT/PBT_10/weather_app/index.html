@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="app-shell">
+        <section class="weather-card">
+            <h1>Weather App</h1>
+            <p class="description">Search any city to get current weather with loading, success, and error states.</p>
+
+            <form id="search-form" class="search-form">
+                <input id="city-input" type="text" placeholder="Enter city name" autocomplete="off" />
+                <button type="submit">Find</button>
+            </form>
+
+            <div id="state-message" class="state-message hidden"></div>
+
+            <div id="weather-result" class="weather-result hidden" aria-live="polite"></div>
+
+            <div class="search-history">
+                <h2>Recent searches</h2>
+                <ul id="history-list"></ul>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
