@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboard App</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="keyboard-shell">
+        <section class="gallery-card">
+            <div class="gallery-header">
+                <h1>Keyboard Gallery</h1>
+                <p>Use arrow keys, number shortcuts, Space to play/pause, Escape to close.</p>
+            </div>
+            <div class="image-frame" id="image-frame" tabindex="0" aria-label="Image gallery display"></div>
+            <div class="gallery-meta">
+                <button type="button" id="prev-btn" class="nav-btn" aria-label="Previous image">←</button>
+                <span id="caption" class="caption"></span>
+                <button type="button" id="next-btn" class="nav-btn" aria-label="Next image">→</button>
+            </div>
+            <div class="gallery-actions">
+                <button type="button" id="play-btn" class="action-btn">Play</button>
+                <button type="button" id="palette-btn" class="action-btn">Open command palette (Ctrl+K)</button>
+            </div>
+            <div class="hint-box">
+                <p><strong>Shortcuts:</strong> 1-9 to jump, Space play/pause, Escape close modal, Ctrl+K palette.</p>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="image-modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" id="close-modal" aria-label="Close modal">✕</button>
+            <img id="modal-image" alt="Gallery photo" />
+            <p id="modal-title"></p>
+        </div>
+    </div>
+
+    <div class="command-overlay" id="command-overlay" aria-hidden="true">
+        <div class="command-panel" role="dialog" aria-modal="true" aria-labelledby="command-title">
+            <h2 id="command-title">Command Palette</h2>
+            <input id="command-search" type="text" placeholder="Search commands..." aria-label="Search commands" />
+            <ul id="command-list"></ul>
+            <p class="command-hint">Enter = run, Escape = close</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
