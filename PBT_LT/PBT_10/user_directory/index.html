@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Directory</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="app-shell">
+        <section class="directory-card">
+            <div class="topbar">
+                <div>
+                    <h1>User Directory</h1>
+                    <p>Fetch users from JSONPlaceholder and perform CRUD actions.</p>
+                </div>
+                <div class="search-box">
+                    <input id="search-input" type="search" placeholder="Search by name or email" autocomplete="off" />
+                </div>
+            </div>
+
+            <div id="toast" class="toast hidden"></div>
+
+            <div class="layout-grid">
+                <div class="form-panel">
+                    <h2 id="form-title">Create new user</h2>
+                    <form id="user-form">
+                        <label>
+                            Name
+                            <input id="name" name="name" type="text" required />
+                        </label>
+                        <label>
+                            Email
+                            <input id="email" name="email" type="email" required />
+                        </label>
+                        <label>
+                            Phone
+                            <input id="phone" name="phone" type="tel" />
+                        </label>
+                        <label>
+                            Website
+                            <input id="website" name="website" type="url" placeholder="https://" />
+                        </label>
+                        <button type="submit" id="submit-btn">Create user</button>
+                        <button type="button" id="cancel-edit" class="secondary hidden">Cancel</button>
+                    </form>
+                </div>
+                <div class="users-panel">
+                    <div id="loading-skeleton" class="skeleton-grid"></div>
+                    <div id="user-list" class="user-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
