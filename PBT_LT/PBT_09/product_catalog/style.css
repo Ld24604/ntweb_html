@@ -1,0 +1,260 @@
+:root {
+    --bg: #f3f4f6;
+    --surface: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --primary: #2563eb;
+    --accent: #f97316;
+    --border: #d1d5db;
+    --radius: 22px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, system-ui, sans-serif;
+    background: radial-gradient(circle at top, #ffffff, #e5e7eb);
+    color: var(--text);
+}
+
+.catalog-shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.header-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.title-block h1 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.toolbar {
+    display: grid;
+    gap: 12px;
+    width: min(100%, 600px);
+}
+
+.toolbar-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.search-input,
+.sort-select {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.buttons-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.button,
+.mode-toggle {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 12px 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover,
+.mode-toggle:hover {
+    transform: translateY(-1px);
+    background: #eff6ff;
+}
+
+.button.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 18px;
+    display: grid;
+    gap: 12px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+}
+
+.product-info {
+    display: grid;
+    gap: 6px;
+}
+
+.product-name {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.product-card button {
+    border: 0;
+    background: var(--primary);
+    color: white;
+    border-radius: 14px;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background: #1d4ed8;
+}
+
+.cart-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.cart-count {
+    min-width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: none;
+    place-items: center;
+    padding: 24px;
+    z-index: 20;
+}
+
+.modal-backdrop.active {
+    display: grid;
+}
+
+.modal-card {
+    width: min(600px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    border-radius: 28px;
+    background: var(--surface);
+    padding: 24px;
+    box-shadow: 0 40px 100px rgba(15, 23, 42, 0.25);
+}
+
+.modal-close {
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--muted);
+    position: absolute;
+    top: 20px;
+    right: 24px;
+}
+
+.modal-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.modal-card h2 {
+    margin: 0;
+}
+
+.dark-mode {
+    background: #111827;
+    color: #f9fafb;
+}
+
+.dark-mode .catalog-shell {
+    background: #111827;
+}
+
+.dark-mode .button,
+.dark-mode .mode-toggle,
+.dark-mode .search-input,
+.dark-mode .sort-select,
+.dark-mode .product-card {
+    background: #1f2937;
+    color: #f9fafb;
+    border-color: #374151;
+}
+
+.dark-mode .product-card:hover,
+.dark-mode .button:hover,
+.dark-mode .mode-toggle:hover {
+    background: #111827;
+}
+
+.dark-mode .toolbar-row,
+.dark-mode .buttons-row {
+    color: #f9fafb;
+}
+
+.dark-mode .cart-count {
+    background: #f97316;
+}
