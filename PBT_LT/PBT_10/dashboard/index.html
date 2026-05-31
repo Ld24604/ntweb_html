@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="dashboard-shell">
+        <header class="dashboard-header">
+            <div>
+                <h1>Multi-API Dashboard</h1>
+                <p>Loading data from multiple APIs in parallel with independent widget status.</p>
+            </div>
+            <div class="dashboard-actions">
+                <button id="refresh-button">Refresh All</button>
+                <span id="load-time">Loaded in 0 ms</span>
+            </div>
+        </header>
+
+        <div class="widgets-grid">
+            <section class="widget" id="users-widget">
+                <h2>Random Users</h2>
+                <div class="widget-status" id="users-status">Idle</div>
+                <div class="widget-body" id="users-body"></div>
+            </section>
+            <section class="widget" id="country-widget">
+                <h2>Vietnam Info</h2>
+                <div class="widget-status" id="country-status">Idle</div>
+                <div class="widget-body" id="country-body"></div>
+            </section>
+            <section class="widget" id="posts-widget">
+                <h2>Recent Posts</h2>
+                <div class="widget-status" id="posts-status">Idle</div>
+                <div class="widget-body" id="posts-body"></div>
+            </section>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
