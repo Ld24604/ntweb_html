@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>ShopVN — Component Extraction</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f5f6fa; }
+        .navbar { background: #2c3e50; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .navbar .logo { font-weight: bold; font-size: 1.2rem; }
+        .navbar a { color: white; text-decoration: none; margin-left: 1.2rem; font-size: 14px; }
+        .hero { background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; text-align: center; padding: 3rem 1rem; }
+        .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .hero button { margin-top: 1rem; padding: 10px 24px; border: none; border-radius: 25px; background: #f39c12; color: white; cursor: pointer; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.2rem; padding: 2rem; max-width: 1000px; margin: 0 auto; }
+        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+        .card img { width: 100%; height: 140px; object-fit: cover; }
+        .card .body { padding: 0.8rem; }
+        .card h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+        .card .price { color: #e74c3c; font-weight: bold; }
+        .card button { width: 100%; margin-top: 0.6rem; padding: 8px; border: none; border-radius: 6px; background: #2575fc; color: white; cursor: pointer; }
+        footer { background: #2c3e50; color: #bdc3c7; text-align: center; padding: 1.5rem; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const products = [
+            { id: 1, name: 'Tai nghe Bluetooth', price: '590.000đ', image: 'https://picsum.photos/200/150?random=11' },
+            { id: 2, name: 'Bàn phím cơ', price: '1.250.000đ', image: 'https://picsum.photos/200/150?random=12' },
+            { id: 3, name: 'Chuột không dây', price: '320.000đ', image: 'https://picsum.photos/200/150?random=13' },
+            { id: 4, name: 'Webcam HD', price: '780.000đ', image: 'https://picsum.photos/200/150?random=14' },
+        ];
+
+        function Navbar({ shopName }) {
+            return (
+                <nav className="navbar">
+                    <div className="logo">🛍️ {shopName}</div>
+                    <div>
+                        <a href="#">Trang chủ</a>
+                        <a href="#">Sản phẩm</a>
+                        <a href="#">Liên hệ</a>
+                    </div>
+                </nav>
+            );
+        }
+
+        function Hero() {
+            return (
+                <section className="hero">
+                    <h1>Khuyến mãi cuối tuần</h1>
+                    <p>Giảm tới 50% cho thiết bị công nghệ</p>
+                    <button>Mua ngay</button>
+                </section>
+            );
+        }
+
+        function ProductCard({ product }) {
+            return (
+                <div className="card">
+                    <img src={product.image} alt={product.name} />
+                    <div className="body">
+                        <h3>{product.name}</h3>
+                        <div className="price">{product.price}</div>
+                        <button>Thêm vào giỏ</button>
+                    </div>
+                </div>
+            );
+        }
+
+        function ProductGrid({ products }) {
+            return (
+                <div className="grid">
+                    {products.map(p => <ProductCard key={p.id} product={p} />)}
+                </div>
+            );
+        }
+
+        function Footer() {
+            return <footer>© 2026 ShopVN · Lê Duy Nhật Minh</footer>;
+        }
+
+        function App() {
+            return (
+                <div>
+                    <Navbar shopName="ShopVN" />
+                    <Hero />
+                    <ProductGrid products={products} />
+                    <Footer />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
